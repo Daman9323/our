@@ -134,7 +134,7 @@ class Bot(discord.Client):
         self.answer_scores = answer_scores
 
         # embed creation
-        self.embed=discord.Embed(title="__**HOTSTAR LIVE**__", description="<a:Googleloading:756090241579876382>**SEARCHING FROM GOOGLE**<a:Googleloading:756090241579876382>",color=0xFF0000)
+        self.embed=discord.Embed(title="__****__", description="**",color=0xFF0000)
         self.embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/754992704047415358/757102029616185404/image0.jpg")
         self.embed.add_field(name="<a:Rgb:752452682504994846> **Answer I**<a:arrow:755731195341570114>", value="0.0", inline=False)
         self.embed.add_field(name="<a:Rgb:752452682504994846> **Answer II**<a:arrow:755731195341570114>", value="0.0", inline=False)
@@ -196,7 +196,7 @@ class Bot(discord.Client):
         self.embed.set_field_at(0, name="**Answer I**", value="{0}{1}".format(lst_scores[0], one_check))
         self.embed.set_field_at(1, name="**Answer II**", value="{0}{1}".format(lst_scores[1], two_check))
         self.embed.set_field_at(2, name="**Answer III**", value="{0}{1}".format(lst_scores[2],three_check))
-        self.embed.set_field_at(3,name="Best Answer",value=best_answer)
+        self.embed.set_field_at(3,name="AIOT Answer",value=best_answer)
 
         if self.embed_msg is not None:
             await self.embed_msg.edit(embed=self.embed)
@@ -218,7 +218,7 @@ class Bot(discord.Client):
         if message.author == self.user or message.guild == None:
             return
 
-        if message.content.lower() == "hq":
+        if message.content.lower() == "At":
             await message.delete()
             if BOT_OWNER_ROLE in [role.name for role in message.author.roles]:
                 self.embed_msg = None
@@ -268,7 +268,7 @@ def bot_with_cyclic_update_process(update_event, answer_scores):
     upd_thread.start()
 
     loop = asyncio.get_event_loop()
-    loop.create_task(bot.start('NzU3MDkyNTI3MTg1NTkyMzYx.X2bXXA.W84lBb8EJ0_vGjIy1KHqfi97nhg'))
+    loop.create_task(bot.start('NzU3ODk5NDQ2MTk2NjMzNjkx.X2nG3Q.1pGUsGDapTmr12weUiSHupwxGMA'))
     loop.run_forever()
 
 
@@ -277,7 +277,7 @@ def selfbot_process(update_event, answer_scores):
     selfbot = SelfBot(update_event, answer_scores)
 
     loop = asyncio.get_event_loop()
-    loop.create_task(selfbot.start('NzIyNDc5ODMwMjQ3MDE0NTEx.X2DBMg.nf9lXXe0iSi11EEGwrAxX2hTbOc',
+    loop.create_task(selfbot.start('NzIyNDc5ODMwMjQ3MDE0NTEx.X22UaA.g0cbfALKHT_D3ZRdXuJuPgKdOdM',
                                    bot=False))
     loop.run_forever()
 
